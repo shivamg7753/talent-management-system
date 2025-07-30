@@ -1,0 +1,21 @@
+{
+  "name": "budget-service",
+  "version": "1.1.0",
+  "description": "Budget Service with Monte Carlo forecasting, SSE alerts, and budget CRUD",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "pg": "^8.11.5",
+    "pg-hstore": "^2.3.4",
+    "puppeteer": "^22.12.1",
+    "sequelize": "^6.37.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

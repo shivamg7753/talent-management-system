@@ -5,6 +5,16 @@ const Budget = require('../models/Budget');
 const { notify } = require('../monitoring/alerts');
 const { burnRate } = require('../monitoring/burn-rate');
 
+// GET /budgets (fetch all)
+router.get('/budgets', async (req, res) => {
+  try {
+    const budgets = await Budget.findAll();
+    res.json(budgets);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // POST /budgets  (create)
 router.post('/budgets', async (req, res) => {
   try {

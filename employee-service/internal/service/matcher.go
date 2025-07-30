@@ -28,6 +28,11 @@ func (m *MatcherService) FindEmployeesBySkills(ctx context.Context, skillsCSV st
 		}
 	}
 
+	// If no skills provided, return empty array instead of nil
+	if len(skills) == 0 {
+		return []models.Employee{}, nil
+	}
+
 	// Neo4j me query kar ke employee IDs nikaalo
 	ids, err := m.GDB.FindEmployeesBySkills(ctx, skills, minLevel)
 	if err != nil {

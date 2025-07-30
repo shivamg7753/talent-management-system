@@ -1,0 +1,194 @@
+syntax = "proto3";
+
+package recruitment;
+
+service RecruitmentService {
+  rpc GetJobs(GetJobsRequest) returns (GetJobsResponse);
+  rpc GetJob(GetJobRequest) returns (Job);
+  rpc CreateJob(CreateJobRequest) returns (Job);
+  rpc UpdateJob(UpdateJobRequest) returns (Job);
+  rpc DeleteJob(DeleteJobRequest) returns (DeleteJobResponse);
+  rpc GetApplications(GetApplicationsRequest) returns (GetApplicationsResponse);
+  rpc GetApplication(GetApplicationRequest) returns (Application);
+  rpc CreateApplication(CreateApplicationRequest) returns (Application);
+  rpc UpdateApplicationStatus(UpdateApplicationStatusRequest) returns (Application);
+  rpc ParseResume(ParseResumeRequest) returns (ParseResumeResponse);
+  rpc GetEvaluation(GetEvaluationRequest) returns (Evaluation);
+  rpc CreateEvaluation(CreateEvaluationRequest) returns (Evaluation);
+}
+
+message Job {
+  string id = 1;
+  string title = 2;
+  string department = 3;
+  string location = 4;
+  string description = 5;
+  repeated string required_skills = 6;
+  repeated string preferred_skills = 7;
+  string experience_level = 8;
+  string employment_type = 9;
+  double salary_min = 10;
+  double salary_max = 11;
+  string status = 12;
+  string posting_date = 13;
+  string closing_date = 14;
+  string created_at = 15;
+  string updated_at = 16;
+}
+
+message Application {
+  string id = 1;
+  string job_id = 2;
+  string applicant_name = 3;
+  string applicant_email = 4;
+  string resume_url = 5;
+  string cover_letter_url = 6;
+  string status = 7;
+  repeated string skills = 8;
+  string application_date = 9;
+  string last_status_change = 10;
+  string created_at = 11;
+  string updated_at = 12;
+}
+
+message Evaluation {
+  string id = 1;
+  string application_id = 2;
+  string evaluator_id = 3;
+  string evaluator_name = 4;
+  int32 technical_score = 5;
+  int32 cultural_score = 6;
+  int32 experience_score = 7;
+  double overall_score = 8;
+  string comments = 9;
+  string recommendation = 10;
+  string evaluation_date = 11;
+  string created_at = 12;
+  string updated_at = 13;
+}
+
+message GetJobsRequest {
+  int32 page = 1;
+  int32 limit = 2;
+  string sort_by = 3;
+  string sort_order = 4;
+  string search = 5;
+  string department = 6;
+  string status = 7;
+}
+
+message GetJobsResponse {
+  repeated Job jobs = 1;
+  int32 total = 2;
+  int32 page = 3;
+  int32 limit = 4;
+}
+
+message GetJobRequest {
+  string id = 1;
+}
+
+message CreateJobRequest {
+  string title = 1;
+  string department = 2;
+  string location = 3;
+  string description = 4;
+  repeated string required_skills = 5;
+  repeated string preferred_skills = 6;
+  string experience_level = 7;
+  string employment_type = 8;
+  double salary_min = 9;
+  double salary_max = 10;
+  string posting_date = 11;
+  string closing_date = 12;
+}
+
+message UpdateJobRequest {
+  string id = 1;
+  string title = 2;
+  string department = 3;
+  string location = 4;
+  string description = 5;
+  repeated string required_skills = 6;
+  repeated string preferred_skills = 7;
+  string experience_level = 8;
+  string employment_type = 9;
+  double salary_min = 10;
+  double salary_max = 11;
+  string status = 12;
+  string closing_date = 13;
+}
+
+message DeleteJobRequest {
+  string id = 1;
+}
+
+message DeleteJobResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message GetApplicationsRequest {
+  int32 page = 1;
+  int32 limit = 2;
+  string sort_by = 3;
+  string sort_order = 4;
+  string job_id = 5;
+  string status = 6;
+}
+
+message GetApplicationsResponse {
+  repeated Application applications = 1;
+  int32 total = 2;
+  int32 page = 3;
+  int32 limit = 4;
+}
+
+message GetApplicationRequest {
+  string id = 1;
+}
+
+message CreateApplicationRequest {
+  string job_id = 1;
+  string applicant_name = 2;
+  string applicant_email = 3;
+  string resume_url = 4;
+  string cover_letter_url = 5;
+}
+
+message UpdateApplicationStatusRequest {
+  string id = 1;
+  string status = 2;
+  string notes = 3;
+}
+
+message ParseResumeRequest {
+  string resume_url = 1;
+  string job_id = 2;
+}
+
+message ParseResumeResponse {
+  string applicant_name = 1;
+  string applicant_email = 2;
+  repeated string skills = 3;
+  repeated string experiences = 4;
+  repeated string educations = 5;
+  double match_score = 6;
+  repeated string missing_skills = 7;
+  repeated string matching_skills = 8;
+}
+
+message GetEvaluationRequest {
+  string application_id = 1;
+}
+
+message CreateEvaluationRequest {
+  string application_id = 1;
+  string evaluator_id = 2;
+  string evaluator_name = 3;
+  int32 technical_score = 4;
+  int32 cultural_score = 5;
+  int32 experience_score = 6;
+  string comments = 7;
+  string recommendation = 8;
+}

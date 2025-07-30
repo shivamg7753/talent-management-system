@@ -72,6 +72,30 @@ services:
     ports:
       - "8082:8082"
 
+
+
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    environment:
+      - PORT=8080
+      - JWT_SECRET=your-secret-key
+      - AUTH_SERVICE_URL=http://auth-service:8081
+      - BUDGET_SERVICE_URL=http://budget-service:8082
+      - EMPLOYEE_SERVICE_URL=http://employee-service:8083
+      - CORS_ORIGIN=*
+      - LOG_LEVEL=info
+    ports:
+      - "8080:8080"
+    depends_on:
+      - auth-service
+      - budget-service
+      - employee-service
+    
+
+
+
 volumes:
   pg_data:
   neo4j_data:

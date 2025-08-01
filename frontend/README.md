@@ -1,70 +1,175 @@
-# Getting Started with Create React App
+# Talent Management System - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive React frontend for the Talent Management System built with Material-UI and Tailwind CSS.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+### Authentication
+- **Login/Register Forms**: Clean, modern authentication interface
+- **Demo Account**: Quick access with demo credentials
+- **Password Visibility Toggle**: Enhanced security UX
+- **Form Validation**: Real-time validation and error handling
 
-### `npm start`
+### Employee Management
+- **Employee Registration**: Add new employees with comprehensive details
+- **Employee List**: View all employees in a responsive table
+- **Skills Management**: Edit and manage employee skills
+- **Skills Visualization**: Interactive skills distribution chart
+- **Department Organization**: Categorize employees by department
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Budget Management
+- **Budget Creation**: Add budgets with categories and descriptions
+- **Budget Tracking**: Monitor budget allocations and spending
+- **Budget Forecasting**: Visualize budget trends and predictions
+- **Interactive Charts**: Custom-built forecast visualization
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Recruitment
+- **Resume Screening**: Batch process and analyze resumes
+- **Candidate Management**: View and manage candidate profiles
+- **Match Scoring**: AI-powered candidate-job matching
+- **Skills Extraction**: Automatic skills identification from resumes
 
-### `npm test`
+## 🛠️ Technology Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React 19**: Latest React with hooks and modern patterns
+- **Material-UI 7**: Comprehensive UI component library
+- **Tailwind CSS 4**: Utility-first CSS framework
+- **Vite**: Fast build tool and development server
+- **TypeScript**: Type-safe development (for chart components)
 
-### `npm run build`
+## 📦 Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Start Development Server**:
+   ```bash
+   npm run dev
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Build for Production**:
+   ```bash
+   npm run build
+   ```
 
-### `npm run eject`
+4. **Preview Production Build**:
+   ```bash
+   npm run preview
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🏗️ Project Structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+src/
+├── features/           # Feature-based organization
+│   ├── auth/          # Authentication components
+│   ├── employee/      # Employee management
+│   ├── budget/        # Budget management
+│   └── recruitment/   # Recruitment features
+├── lib/               # Shared utilities
+│   └── api.js         # API integration
+├── App.jsx            # Main application component
+├── main.jsx           # Application entry point
+└── index.css          # Global styles
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🎨 UI Components
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Core Components
+- **AuthForm**: Modern authentication with tabs and validation
+- **EmployeeForm**: Comprehensive employee registration
+- **EmployeeList**: Responsive table with skills management
+- **BudgetForm**: Multi-field budget creation
+- **BudgetList**: Budget overview with categories
+- **ResumeUpload**: Batch resume processing interface
+- **CandidateTable**: Enhanced candidate management
 
-## Learn More
+### Visualization Components
+- **SkillsGraph**: Interactive skills distribution chart
+- **ForecastChart**: Custom budget forecasting visualization
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🔧 Configuration
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### API Configuration
+The frontend is configured to proxy API requests to `http://localhost:4000` through Vite's proxy configuration.
 
-### Code Splitting
+### Theme Customization
+The application uses a custom Material-UI theme with:
+- Primary color: `#1976d2` (Blue)
+- Secondary color: `#dc004e` (Red)
+- Responsive design with mobile-first approach
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📱 Responsive Design
 
-### Analyzing the Bundle Size
+The application is fully responsive and optimized for:
+- **Desktop**: Full-featured interface with sidebars and detailed views
+- **Tablet**: Adaptive layouts with collapsible sections
+- **Mobile**: Touch-friendly interface with simplified navigation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🎯 Key Features
 
-### Making a Progressive Web App
+### Enhanced User Experience
+- **Loading States**: Comprehensive loading indicators
+- **Error Handling**: User-friendly error messages
+- **Success Feedback**: Clear success notifications
+- **Form Validation**: Real-time validation with helpful messages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Data Visualization
+- **Interactive Charts**: Custom-built visualization components
+- **Color-coded Status**: Visual indicators for match scores and status
+- **Responsive Tables**: Optimized for all screen sizes
 
-### Advanced Configuration
+### Modern UI/UX
+- **Material Design**: Following Material Design principles
+- **Smooth Animations**: Subtle transitions and hover effects
+- **Accessibility**: ARIA labels and keyboard navigation
+- **Dark Mode Ready**: Theme system supports dark mode
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🔄 State Management
 
-### Deployment
+The application uses React hooks for state management:
+- **useState**: Local component state
+- **useEffect**: Side effects and API calls
+- **Custom Hooks**: Reusable logic patterns
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🚀 Performance Optimizations
 
-### `npm run build` fails to minify
+- **Code Splitting**: Feature-based component organization
+- **Lazy Loading**: Components loaded on demand
+- **Optimized Bundles**: Vite for fast builds
+- **Efficient Re-renders**: Proper dependency arrays and memoization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🧪 Development
+
+### Code Quality
+- **ESLint**: Code linting and formatting
+- **TypeScript**: Type safety for chart components
+- **Component Structure**: Consistent component patterns
+
+### Testing
+- **Component Testing**: Ready for React Testing Library
+- **API Mocking**: Easy to mock API responses
+- **Error Boundaries**: Graceful error handling
+
+## 📈 Future Enhancements
+
+- **Real-time Updates**: WebSocket integration
+- **Advanced Filtering**: Search and filter capabilities
+- **Export Features**: PDF/Excel export functionality
+- **Advanced Analytics**: More detailed reporting
+- **Mobile App**: React Native version
+
+## 🤝 Contributing
+
+1. Follow the existing code structure
+2. Use Material-UI components consistently
+3. Implement proper error handling
+4. Add loading states for async operations
+5. Ensure responsive design
+6. Write clear component documentation
+
+## 📄 License
+
+This project is part of the Talent Management System.
